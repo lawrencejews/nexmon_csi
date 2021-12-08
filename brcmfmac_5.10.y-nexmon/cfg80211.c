@@ -4966,7 +4966,7 @@ brcmf_cfg80211_change_station(struct wiphy *wiphy, struct net_device *ndev,
 }
 
 static void
-brcmf_update_cfg80211_mgmt_frame_registrations(struct wiphy *wiphy,
+brcmf_cfg80211_update_mgmt_frame_registrations(struct wiphy *wiphy,
 				   struct wireless_dev *wdev,
 				   struct mgmt_frame_regs *upd)
 {
