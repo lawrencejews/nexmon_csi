@@ -51,4 +51,10 @@
 - nexutil -I wlan0 -s 500 -b -l 34 -v BxABEQAAAQAckYDx7q8AAAAAAAAAAAAAAAAAAAAAAAAAAA==
 - iw phy `iw dev wlan0 info | gawk '/wiphy/ {printf "phy" $2}'` interface add mon0 type monitor && ifconfig mon0 up
 - python3 only_sniffing.py wlan0
-NOTE: You should run on the same network for wireless extraction from the sender PC to receiver PC.
+NOTE: 
+- You should run on the same network for wireless extraction from the sender PC to receiver PC.
+- Make sure your autoconf -> 2.69 & automake-1.15
+- wget https://ftp.gnu.org/gnu/automake/automake/automake-1.15.tar.gz 
+- wget https://ftp.gnu.org/gnu/autoconf/autoconf/autoconf-2.71.tar.gz
+- Extract -> tar -xzvf [PACKAGES]
+- Change to folder and Build & install -> ./configure && make && make install
