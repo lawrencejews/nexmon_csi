@@ -1,4 +1,5 @@
-## Nexmon Lab Set-Up
+## Nexmon Lab Set-Up 
+#### NOTE: Remember your clone location for file configurations. 
 ### Preparing the Raspberry-pi
 - Check the kernel version -> uname -r
 - Move to root -> sudo su
@@ -40,8 +41,13 @@
 - sudo apt update && sudo apt install libpcap-dev python3-pypcap 
 - sudo pip3 install numpy --upgrade
 - sudo pip3 install dpkt pandas keyboard
-### Extractor
-- These are CSI extraction files
+### Extractor: These are CSI extraction files && install
+#### Run sniffing .py file in a different terminal after configuration.
+- cd nexmon
+- run: source setup_env.sh
+- cd /home/pi/Desktop/CSI/nexmon/patches/bcm43455c0/7_45_189/nexmon_csi
+- make install-firmware
+- cd /home/pi/Desktop/CSI/nexmon/patches/bcm43455c0/7_45_189/nexmon_csi/utils/makecsiparams
 - nexutil -k
 - ./makecsiparams - c [channel] -C 1 -N 1 -m [Mac Address(ping)]
 - ./makecsiparams -c 7 -C 1 -N 1 -m 1C:91:80:F1:EE:AF 
@@ -51,7 +57,7 @@
 - nexutil -I wlan0 -s 500 -b -l 34 -v BxABEQAAAQAckYDx7q8AAAAAAAAAAAAAAAAAAAAAAAAAAA==
 - iw phy `iw dev wlan0 info | gawk '/wiphy/ {printf "phy" $2}'` interface add mon0 type monitor && ifconfig mon0 up
 - python3 only_sniffing.py wlan0
-NOTE: 
+### NOTE: 
 - You should run on the same network for wireless extraction from the sender PC to receiver PC.
 - Make sure your autoconf -> 2.69 & automake-1.15
 - wget https://ftp.gnu.org/gnu/automake/automake/automake-1.15.tar.gz 

@@ -7,7 +7,7 @@ import numpy as np
 import sys
 
 def sniffing(nicname):
-    print('Start Sniifing... @', nicname, 'UDP, Port 5500')
+    print('Start Snifing... @', nicname, 'UDP, Port 5500')
     sniffer = pcap.pcap(name=nicname, promisc=True, immediate=True, timeout_ms=50)
     sniffer.setfilter('udp and port 5500')
 
@@ -18,7 +18,7 @@ def sniffing(nicname):
     for ts, pkt in sniffer:
         eth = dpkt.ethernet.Ethernet(pkt)
         ip = eth.data
-        udp = ip.data
+        udp = ip.data 
         csi = udp.data[18:]
 
         bandwidth = ip.__hdr__[2][2]
