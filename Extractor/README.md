@@ -3,17 +3,17 @@
 ### Preparing the Raspberry-pi
 1. Check the kernel version -> uname -r
 2. Move to root -> sudo su
-3. Add kernel headers: apt install git libgmp3-dev gawk qpdf bison flex make autoconf libtool texinfo raspberrypi-kernel-headers
+3. Add kernel headers: ``` apt install git libgmp3-dev gawk qpdf bison flex make autoconf libtool texinfo raspberrypi-kernel-headers ```
 4. Clone Repo: `git clone https://github.com/seemoo-lab/nexmon.git`
 5. Configure 5.10-y from 5.4-y
 ## Compiling the additional libraries
 1. cd /home/pi/nexmon/buildtools/isl-0.10
 2. ./configure && make && make install
-3. Create a link to lib: ln -s /usr/local/lib/libisl.so /usr/lib/arm-linux-gnueabihf/libisl.so.10
+3. Create a link to lib: ``` ln -s /usr/local/lib/libisl.so /usr/lib/arm-linux-gnueabihf/libisl.so.10 ```
 4. cd /home/pi/nexmon/buildtools/mpfr-3.1.4
 5. Prepare Makefile: autoreconf -f -i
 6. ./configure && make && make install
-7. Create link to the lib: ln -s /usr/local/lib/libmpfr.so /usr/lib/arm-linux-gnueabihf/libmpfr.so.4
+7. Create link to the lib: ``` ln -s /usr/local/lib/libmpfr.so /usr/lib/arm-linux-gnueabihf/libmpfr.so.4 ```
 ## Install Nexmon patches
 1. cd /home/pi/nexmon
 2. source setup_env.sh
