@@ -56,7 +56,7 @@
 11. nexutil -I wlan0 -s 500 -b -l 34 -v [makecsiparams result]
 12. nexutil -I wlan0 -s 500 -b -l 34 -v BxABEQAAAQAckYDx7q8AAAAAAAAAAAAAAAAAAAAAAAAAAA==
 13. iw phy `iw dev wlan0 info | gawk '/wiphy/ {printf "phy" $2}'` interface add mon0 type monitor && ifconfig mon0 up
-14. python3 only_sniffing.py wlan0
+14. Run in a different terminal for .csv`python3 only_sniffing.py wlan0` OR Run `tcpdump -i wlan0 dst port 5500` for .pcap file
 ## NOTE: 
 1. You should run on the same network for wireless extraction from the sender PC to receiver PC.
 2. Make sure your autoconf -> 2.69 & automake-1.15
