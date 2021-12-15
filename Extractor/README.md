@@ -48,7 +48,7 @@
 3. cd /home/pi/Desktop/CSI/nexmon/patches/bcm43455c0/7_45_189/nexmon_csi
 4. make install-firmware
 5. cd /home/pi/Desktop/CSI/nexmon/patches/bcm43455c0/7_45_189/nexmon_csi/utils/makecsiparams
-6 nexutil -k
+6. nexutil -k
 7. ./makecsiparams - c [channel] -C 1 -N 1 -m [Mac Address(ping)]
 8. ./makecsiparams -c 7 -C 1 -N 1 -m 1C:91:80:F1:EE:AF 
 9. pkill wpa_supplicant
@@ -56,7 +56,8 @@
 11. nexutil -I wlan0 -s 500 -b -l 34 -v [makecsiparams result]
 12. nexutil -I wlan0 -s 500 -b -l 34 -v BxABEQAAAQAckYDx7q8AAAAAAAAAAAAAAAAAAAAAAAAAAA==
 13. iw phy `iw dev wlan0 info | gawk '/wiphy/ {printf "phy" $2}'` interface add mon0 type monitor && ifconfig mon0 up
-14. Run in a different terminal for .csv`python3 only_sniffing.py wlan0` OR Run `tcpdump -i wlan0 dst port 5500` for .pcap file
+14. sudo apt install tcpdump
+15. Run in a different terminal for .csv`python3 only_sniffing.py wlan0` OR Run `tcpdump -i wlan0 dst port 5500` for .pcap file
 ## NOTE: 
 1. You should run on the same network for wireless extraction from the sender PC to receiver PC.
 2. Make sure your autoconf -> 2.69 & automake-1.15
